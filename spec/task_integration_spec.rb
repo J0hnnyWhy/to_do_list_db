@@ -24,7 +24,7 @@ describe('adding a new list', {:type => :feature}) do
 end
 
 describe('viewing all of the lists', {:type => :feature}) do
-  it('allow a user to see all of the lists that have been created') do
+  it('allows a user to see all of the lists that have been created') do
     list = List.new({:name => 'Epicodus Homework'})
     list.save()
     visit('/')
@@ -33,7 +33,7 @@ describe('viewing all of the lists', {:type => :feature}) do
   end
 end
 
-describe('seeing the details for a singlelist', {:type => :feature}) do
+describe('seeing the details for a single list', {:type => :feature}) do
   it('allows the user to click a list to see the talks and details for it') do
     test_list = List.new({:name => 'School Stuff'})
     test_list.save()
