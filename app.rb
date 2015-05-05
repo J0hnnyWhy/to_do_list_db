@@ -5,16 +5,19 @@ require('./lib/task')
 require('./lib/list')
 require('pg')
 
-DB = PG.connect({:dbname => "to_do"})
+DB = PG.connect({:dbname => "to_do_list"})
 
 get('/') do
-  @tasks = Task.all()
   erb(:index)
 end
 
-post('/tasks') do
-  description = params.fetch('description')
-  task = Task.new(description)
-  task.save()
-  erb(:success)
+get('/lists/new') do
+  erb(:list_form)
+end
+
+post('/lists') do
+  name = params.fetch('name')
+  list = List.new({:name => name, :id => nil})
+  list.save()
+  erb(:list_success)
 end
