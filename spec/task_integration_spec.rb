@@ -3,11 +3,12 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-#describe('path to to-do list', {:type => :feature}) do
-  #it('user inputs a task and it is saved to the to-do list array') do
-  #  visit('/')
-  #  fill_in('description', :with => 'sweep floors')
-  #  click_button('Add task')
-  #  expect(page).to have_content('The task has been successfully submitted!')
-#  end
-#end
+describe('adding a new list') do
+  it('allows a user to click a list to see the tasks and details for it') do
+    visit('/')
+    click_link('Add New List')
+    fill_in('name', :with => 'Epicodus Work')
+    click_button('Add List')
+    expect(page).to have_content('Success!')
+  end
+end
